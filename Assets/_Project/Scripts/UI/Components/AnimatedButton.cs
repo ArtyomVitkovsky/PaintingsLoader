@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
 using Sirenix.OdinInspector;
+using UniRx;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -14,8 +15,9 @@ public class AnimatedButton : MonoBehaviour,
     [Header("Animations")] 
     [SerializeField] protected ComponentFadeAnimation[] fadeAnimations;
     [SerializeField] private ComponentScaleAnimation[] scaleAnimations;
-
-    public Action<AnimatedButton> OnButtonClick;
+    
+    private readonly Subject<AnimatedButton> _onButtonClick = new Subject<AnimatedButton>();
+    public IObservable<AnimatedButton> OnButtonClick => _onButtonClick;
 
     protected bool isPointerOnButton;
     protected bool _isSelected;
@@ -148,7 +150,7 @@ public class AnimatedButton : MonoBehaviour,
 
         await UniTask.WhenAll(animationTasks);
         
-        OnButtonClick?.Invoke(this);
+        _onButtonClick?.OnNext(this);
     }
 
     private void OnDisable()
