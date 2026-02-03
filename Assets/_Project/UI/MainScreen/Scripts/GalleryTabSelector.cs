@@ -8,33 +8,31 @@ namespace _Project.UI.MainScreen.Scripts
     public class GalleryTabSelector : MonoBehaviour
     {
         [SerializeField] private GalleryTabButton[] galleryTabButtons;
+        [SerializeField] private SortingType defaultTab = SortingType.All;
 
-        private readonly Subject<SortingType> _onTabSelected = new Subject<SortingType>();
-        public IObservable<SortingType> OnTabSelected => _onTabSelected;
-        
+        private readonly ReactiveProperty<SortingType> _currentTab = new ReactiveProperty<SortingType>();
+        public IReadOnlyReactiveProperty<SortingType> OnTabSelected => _currentTab;
+
         private void Awake()
         {
-            var buttonStreams = galleryTabButtons.Select(button => 
+            _currentTab.Value = defaultTab;
+
+            var buttonClicks = galleryTabButtons.Select(button => 
                 button.OnButtonClick.Select(_ => button.Type)
             );
 
-            buttonStreams.Merge()
-                .Subscribe(_onTabSelected)
+            Observable.Merge(buttonClicks)
+                .DistinctUntilChanged()
+                .Subscribe(type => _currentTab.Value = type)
                 .AddTo(this);
-        }
 
-        private void OnButtonClick(AnimatedButton animatedButton)
-        {
-            if (animatedButton is GalleryTabButton galleryTabButton)
+            _currentTab.Subscribe(activeType =>
             {
-                _onTabSelected?.OnNext(galleryTabButton.Type);
-            }
-        }
-
-        private void OnDestroy()
-        {
-            _onTabSelected.OnCompleted();
-            _onTabSelected.Dispose();
+                foreach (var button in galleryTabButtons)
+                {
+                    button.SetSelected(button.Type == activeType);
+                }
+            }).AddTo(this);
         }
     }
 }

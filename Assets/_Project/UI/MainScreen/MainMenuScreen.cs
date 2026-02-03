@@ -10,7 +10,7 @@ namespace _Project.UI.MainScreen
         [SerializeField] private Gallery gallery;
         [SerializeField] private GalleryTabSelector tabSelector;
 
-        private void Awake()
+        private void Start()
         {
             gallery.Initialize(SortingType.All);
 

@@ -98,6 +98,8 @@ namespace _Project.UI.MainScreen.Scripts
         
         private void SetupGrid()
         {
+            Canvas.ForceUpdateCanvases();
+
             _columns = TabletDetectorUtil.IsTablet() ? 3 : 2;
 
             var width = viewport.rect.width;
