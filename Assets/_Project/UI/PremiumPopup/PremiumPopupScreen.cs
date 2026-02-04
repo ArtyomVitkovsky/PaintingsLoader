@@ -98,7 +98,7 @@ namespace _Project.UI.PremiumPopup
                 
                     SetContainerHeight(curveValue, false);
 
-                    await UniTask.Yield(PlayerLoopTiming.Update, token);
+                    await UniTask.NextFrame(token);
                 }
 
             
