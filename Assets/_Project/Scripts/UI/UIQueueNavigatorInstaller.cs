@@ -4,7 +4,7 @@
     {
         protected override void BindDependencies()
         {
-            Container.Bind<UIStackNavigator>()
+            Container.Bind<UIQueueNavigator>()
                 .WithId(navigatorId)
                 .AsCached()
                 .WithArguments(screens, contianer)

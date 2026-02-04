@@ -1,17 +1,15 @@
 using UnityEngine;
+using Zenject;
 
 namespace GameTemplate.UI
 {
     public abstract class UIQueueScreen : UIScreenBase
     {
-        [Header("Queue Screen Settings")]
-        [SerializeField] private bool autoCloseOnShowComplete = false;
-
-        public bool AutoCloseOnShowComplete => autoCloseOnShowComplete;
-
-        protected void NotifyCompleted()
+        public UIQueueNavigator Navigator { get; private set; } 
+            
+        public override void SetNavigator<TNavigator>(TNavigator navigator)
         {
-            RequestClose();
+            Navigator = navigator as UIQueueNavigator;
         }
     }
 }

@@ -1,6 +1,7 @@
 using _Project.Scripts.Constants;
 using _Project.Scripts.Core.Services;
 using _Project.UI.MainScreen;
+using _Project.UI.PremiumPopup;
 using Cysharp.Threading.Tasks;
 using GameTemplate.UI;
 using UnityEngine;

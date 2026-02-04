@@ -9,8 +9,10 @@ namespace GameTemplate.UI
     {
         [Inject] private DiContainer diContainer;
 
-        public TScreen CreateInstance<TScreen>(TScreen prefab, Transform parent, Action<TScreen> initializer = null)
+        public TScreen CreateInstance<TScreen, TNavigator>
+            (TScreen prefab, Transform parent, TNavigator navigator, Action<TScreen> initializer = null)
             where TScreen : UIScreenBase
+            where TNavigator : UINavigator
         {
             if (prefab == null)
             {
@@ -31,6 +33,7 @@ namespace GameTemplate.UI
                 instance = diContainer.InstantiatePrefabForComponent<TScreen>(prefab, parent);
 
                 instance.Initialize();
+                instance.SetNavigator(navigator);
             }
 
             initializer?.Invoke(instance);

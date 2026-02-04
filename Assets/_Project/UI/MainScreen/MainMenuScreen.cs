@@ -1,4 +1,5 @@
 ﻿using _Project.UI.MainScreen.Scripts;
+using _Project.UI.MainScreen.Scripts.Gallery;
 using GameTemplate.UI;
 using UniRx;
 using UnityEngine;

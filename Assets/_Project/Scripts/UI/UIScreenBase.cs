@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using Zenject;
 
 namespace GameTemplate.UI
 {
@@ -7,6 +8,8 @@ namespace GameTemplate.UI
     {
         [Header("Screen Settings")]
         [SerializeField] private bool isPoolable = false;
+        
+        public abstract void SetNavigator<TNavigator>(TNavigator navigator) where TNavigator : UINavigator;
 
         public event Action<UIScreenBase> OnCloseRequested;
 
@@ -16,6 +19,7 @@ namespace GameTemplate.UI
         {
         }
 
+        
         public virtual void OnShow()
         {
             gameObject.SetActive(true);
