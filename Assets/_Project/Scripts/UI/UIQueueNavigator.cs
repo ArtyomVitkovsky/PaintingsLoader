@@ -1,6 +1,6 @@
 using System.Collections.Generic;
-using GameTemplate.UI;
 using UnityEngine;
+using Zenject;
 
 namespace GameTemplate.UI
 {
@@ -26,17 +26,14 @@ namespace GameTemplate.UI
             }
         }
 
-        public T Enqueue<T>(System.Action<T> initializer = null) where T : UIQueueScreen
+        public T Enqueue<T>(System.Action<DiContainer> initializer = null) where T : UIQueueScreen
         {
             UIQueueScreen prefab = GetPrefabForType<T>();
             if (prefab == null) return null;
 
-            UIQueueScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, screen =>
-            {
-                screen.gameObject.SetActive(false);
-                initializer?.Invoke((T)screen);
-            });
+            UIQueueScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, initializer);
 
+            instance.gameObject.SetActive(false);
             instance.OnCloseRequested += HandleScreenCloseRequested;
             screenQueue.Enqueue(instance);
 

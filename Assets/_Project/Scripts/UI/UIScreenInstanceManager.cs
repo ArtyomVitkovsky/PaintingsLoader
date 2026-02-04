@@ -10,7 +10,7 @@ namespace GameTemplate.UI
         [Inject] private DiContainer diContainer;
 
         public TScreen CreateInstance<TScreen, TNavigator>
-            (TScreen prefab, Transform parent, TNavigator navigator, Action<TScreen> initializer = null)
+            (TScreen prefab, Transform parent, TNavigator navigator, Action<DiContainer> initializer = null)
             where TScreen : UIScreenBase
             where TNavigator : UINavigator
         {
@@ -25,19 +25,21 @@ namespace GameTemplate.UI
                 Debug.LogError("[UIScreenInstanceManager] Parent is null. Cannot create screen instance.");
                 return null;
             }
-
+            
             TScreen instance = TryGetPooledInstance(prefab, parent);
 
             if (instance == null)
             {
-                instance = diContainer.InstantiatePrefabForComponent<TScreen>(prefab, parent);
+                var subContainer = diContainer.CreateSubContainer();
+
+                initializer?.Invoke(subContainer);
+
+                instance = subContainer.InstantiatePrefabForComponent<TScreen>(prefab, parent);
 
                 instance.Initialize();
                 instance.SetNavigator(navigator);
             }
-
-            initializer?.Invoke(instance);
-
+            
             instance.OnHide();
             return instance;
         }

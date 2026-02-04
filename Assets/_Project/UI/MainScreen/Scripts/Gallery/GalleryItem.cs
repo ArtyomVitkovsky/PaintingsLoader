@@ -28,16 +28,12 @@ namespace _Project.UI.MainScreen.Scripts
         public RectTransform RectTransform => rectTransform;
         
         public AnimatedButton SelectionButton => selectionButton;
+        public Texture Texture { get; private set; }
 
         [Inject]
         public void Construct(TextureAssetProvider assetProvider)
         {
             _assetProvider = assetProvider;
-        }
-
-        private void HandleSelectionButtonClick(AnimatedButton button)
-        {
-            throw new NotImplementedException();
         }
 
         public void SetPremiumStatus(bool isPremium)
@@ -60,10 +56,10 @@ namespace _Project.UI.MainScreen.Scripts
         
             loader.Show();
         
-            var texture = await _assetProvider.GetTexture(url, token);
-            if (texture != null && !token.IsCancellationRequested)
+            Texture = await _assetProvider.GetTexture(url, token);
+            if (Texture != null && !token.IsCancellationRequested)
             {
-                image.texture = texture;
+                image.texture = Texture;
                 isLoaded = true;
             
                 if (currentId == id)

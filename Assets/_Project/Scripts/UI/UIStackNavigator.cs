@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace GameTemplate.UI
 {
@@ -39,7 +40,7 @@ namespace GameTemplate.UI
             return Push<T>(null);
         }
 
-        public T Push<T>(System.Action<T> initializer) where T : UIStackScreen
+        public T Push<T>(System.Action<DiContainer> initializer) where T : UIStackScreen
         {
             UIStackScreen prefab = GetPrefabForType<T>();
             if (prefab == null)
@@ -48,7 +49,7 @@ namespace GameTemplate.UI
                 return null;
             }
 
-            return ShowStackScreen(prefab, screen => initializer?.Invoke((T)screen)) as T;
+            return ShowStackScreen(prefab, initializer) as T;
         }
 
         public void Pop()
@@ -75,10 +76,10 @@ namespace GameTemplate.UI
             return Replace<T>(null);
         }
 
-        public T Replace<T>(System.Action<T> initializer) where T : UIStackScreen
+        public T Replace<T>(System.Action<DiContainer> initializer) where T : UIStackScreen
         {
             Pop();
-            return Push(initializer);
+            return Push<T>(initializer);
         }
 
         public void ClearStack()
@@ -111,7 +112,7 @@ namespace GameTemplate.UI
             return null;
         }
 
-        private UIStackScreen ShowStackScreen(UIStackScreen prefab, System.Action<UIStackScreen> initializer = null)
+        private UIStackScreen ShowStackScreen(UIStackScreen prefab, System.Action<DiContainer> initializer = null)
         {
             if (prefab == null)
             {
@@ -125,10 +126,7 @@ namespace GameTemplate.UI
                 top.OnHide();
             }
 
-            UIStackScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, screen =>
-            {
-                initializer?.Invoke(screen);
-            });
+            UIStackScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, initializer);
             
             if (instance == null)
             {
