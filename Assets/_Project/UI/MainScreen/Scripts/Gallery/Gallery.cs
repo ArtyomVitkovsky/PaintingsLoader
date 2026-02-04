@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Threading;
 using _Project.Scripts.Core.Services.AssetsProvider;
 using _Project.Scripts.Utils;
+using _Project.UI.PaintingViewPopup;
 using GameTemplate.UI;
 using UniRx;
 using UnityEngine;
@@ -168,6 +169,11 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
             if (galleryItem.IsPremium)
             {
                 _queueNavigator.Enqueue<PremiumPopupScreen>();
+            }
+            else
+            {
+                var context = PaintingViewPopupScreen.GetContextDecorator(galleryItem.Texture);
+                _queueNavigator.Enqueue<PaintingViewPopupScreen>(context);
             }
         }
 
