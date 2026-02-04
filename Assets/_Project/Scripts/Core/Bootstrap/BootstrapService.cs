@@ -18,14 +18,17 @@ namespace GameTemplate.Core.Bootstrap
     {
         private readonly IScenesService _scenesService;
         private readonly UIStackNavigator _rootNavigator;
+        private readonly UIStackNavigator _overlayNavigator;
         
         public BootstrapService(
             IScenesService scenesService,
-            [Inject(Id = NavigatorIds.RootScreensNavigator)] UIStackNavigator rootNavigator
+            [Inject(Id = NavigatorIds.RootScreensNavigator)] UIStackNavigator rootNavigator,
+            [Inject(Id = NavigatorIds.OverlayScreensNavigator)] UIStackNavigator overlayNavigator
             )
         {
             _scenesService = scenesService;
             _rootNavigator = rootNavigator;
+            _overlayNavigator = overlayNavigator;
             
             Bootstrap();
         }
@@ -34,7 +37,14 @@ namespace GameTemplate.Core.Bootstrap
         {
             Debug.Log("[Bootstrap] GameBootstrapper.Bootstrap() – initializing lifetime services...");
 
+            _overlayNavigator.Push<SplashScreen>();
+
             await _scenesService.LoadScene(SceneNames.MAIN_SCENE);
+
+            await UniTask.WaitForSeconds(1);
+            
+            _overlayNavigator.Pop();
+            
             _rootNavigator.Push<MainMenuScreen>();
             
             Debug.Log("[Bootstrap] Game lifetime services initialization completed.");
