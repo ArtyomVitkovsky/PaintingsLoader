@@ -1,7 +1,9 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using _Project.Scripts.Core.Services.AssetsProvider;
 using Cysharp.Threading.Tasks;
 using TMPro;
+using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
@@ -13,13 +15,19 @@ namespace _Project.UI.MainScreen.Scripts
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private RawImage image;
         [SerializeField] private LoaderView loader;
+        [SerializeField] private GameObject premiumBadge;
+        [SerializeField] private AnimatedButton selectionButton;
 
         private TextureAssetProvider _assetProvider;
 
         private int currentId;
         private bool isLoaded;
+        
+        public bool IsPremium { get; private set; }
 
         public RectTransform RectTransform => rectTransform;
+        
+        public AnimatedButton SelectionButton => selectionButton;
 
         [Inject]
         public void Construct(TextureAssetProvider assetProvider)
@@ -27,6 +35,18 @@ namespace _Project.UI.MainScreen.Scripts
             _assetProvider = assetProvider;
         }
 
+        private void HandleSelectionButtonClick(AnimatedButton button)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetPremiumStatus(bool isPremium)
+        {
+            IsPremium = isPremium;
+            
+            premiumBadge.SetActive(isPremium);
+        }
+        
         public async UniTask LoadImage(int id, string url, CancellationToken token)
         {
             if (currentId == id && isLoaded)
@@ -51,13 +71,6 @@ namespace _Project.UI.MainScreen.Scripts
                     loader.Hide();
                 }
             }
-        }
-    
-        private bool IsVisible(RectTransform viewport)
-        {
-            var center = transform.position;
-        
-            return RectTransformUtility.RectangleContainsScreenPoint(viewport, center, null);
         }
     }
 }

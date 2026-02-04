@@ -23,13 +23,13 @@ public class ComponentScaleAnimation : MonoBehaviour
     [HideIf("separateAxes")]
     [BoxGroup("Uniform Curves")]
     [LabelText("Scale In Curve")]
-    [SerializeField] private AnimationCurve scaleCurve = AnimationCurve.Linear(0, 0, 1, 1);
+    [SerializeField] private AnimationCurve scaleCurve;
 
     [HideIf("separateAxes")]
     [BoxGroup("Uniform Curves")]
     [ShowIf("useCustomOutCurve")]
     [LabelText("Scale Out Curve")]
-    [SerializeField] private AnimationCurve scaleCurveOut = AnimationCurve.Linear(0, 1, 1, 0);
+    [SerializeField] private AnimationCurve scaleCurveOut;
 
     [HideIf("separateAxes")]
     [FoldoutGroup("Uniform Curves/Auto Setup")]

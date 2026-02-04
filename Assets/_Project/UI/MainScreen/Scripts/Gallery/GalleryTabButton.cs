@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using _Project.UI.MainScreen.Scripts.Gallery;
+using UnityEngine;
 
 namespace _Project.UI.MainScreen.Scripts
 {

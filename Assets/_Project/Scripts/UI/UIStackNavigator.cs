@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI
 {
-    public class UIStackNavigator : UINavigator<UIStackScreen>
+    public class UIStackNavigator : UINavigator
     {
         private Transform screensContainer;
         
@@ -125,10 +125,11 @@ namespace GameTemplate.UI
                 top.OnHide();
             }
 
-            UIStackScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, screen =>
+            UIStackScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, screen =>
             {
                 initializer?.Invoke(screen);
-            }) as UIStackScreen;
+            });
+            
             if (instance == null)
             {
                 Debug.LogError("[UIStackNavigator] Failed to create stack screen instance.");

@@ -2,12 +2,14 @@ using System.Collections.Generic;
 using System.Threading;
 using _Project.Scripts.Core.Services.AssetsProvider;
 using _Project.Scripts.Utils;
+using GameTemplate.UI;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
+using _Project.UI.PremiumPopup;
 
-namespace _Project.UI.MainScreen.Scripts
+namespace _Project.UI.MainScreen.Scripts.Gallery
 {
     public enum SortingType
     {
@@ -46,7 +48,22 @@ namespace _Project.UI.MainScreen.Scripts
 
         private CancellationTokenSource _cts;
         private int _prevStartRow = -1;
+        
         private TextureAssetProvider assetProvider = new TextureAssetProvider();
+
+        #region Dependencies
+
+        private UIQueueNavigator _queueNavigator;
+
+        [Inject]
+        public void Construct(
+            [Inject(Id = NavigatorIds.QueueScreensNavigator)] UIQueueNavigator queueNavigator)
+        {
+            _queueNavigator = queueNavigator;
+        }
+
+        #endregion
+        
 
         public void Initialize(SortingType type)
         {
@@ -133,9 +150,24 @@ namespace _Project.UI.MainScreen.Scripts
                 item.RectTransform.pivot = new Vector2(0, 1);
                 item.RectTransform.sizeDelta = new Vector2(_cellSize, _cellSize);
                 item.gameObject.SetActive(false);
+                
+                item.SelectionButton.OnButtonClick
+                    .Subscribe(_ =>
+                    {
+                        HandleGalleryItemSelection(item);
+                    })
+                    .AddTo(item);
 
                 _pool.Add(item);
                 _poolDisplayIndices[i] = -1;
+            }
+        }
+
+        private void HandleGalleryItemSelection(GalleryItem galleryItem)
+        {
+            if (galleryItem.IsPremium)
+            {
+                _queueNavigator.Enqueue<PremiumPopupScreen>();
             }
         }
 
@@ -209,6 +241,7 @@ namespace _Project.UI.MainScreen.Scripts
             item.RectTransform.anchoredPosition = new Vector2(x, y);
 
             var imageId = _activeIds[dataIndex];
+            item.SetPremiumStatus(imageId % 4 == 0);
             item.LoadImage(imageId, $"{baseUrl}{imageId}.jpg", _cts.Token);
         }
 

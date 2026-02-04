@@ -57,7 +57,7 @@ public class AnimatedButton : MonoBehaviour,
             return;
         }
 
-        if (!isPointerOnButton)
+        if (!isPointerOnButton || eventData.dragging)
         {
             foreach (var scaleAnimation in scaleAnimations)
             {

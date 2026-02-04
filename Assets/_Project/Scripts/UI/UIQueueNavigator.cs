@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace GameTemplate.UI
 {
-    public class UIQueueNavigator : UINavigator<UIQueueScreen>
+    public class UIQueueNavigator : UINavigator
     {
         private Transform screensContainer;
         private List<UIQueueScreen> registeredScreens;
@@ -31,7 +31,7 @@ namespace GameTemplate.UI
             UIQueueScreen prefab = GetPrefabForType<T>();
             if (prefab == null) return null;
 
-            UIQueueScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, screen =>
+            UIQueueScreen instance = InstanceManager.CreateInstance(prefab, screensContainer, this, screen =>
             {
                 screen.gameObject.SetActive(false);
                 initializer?.Invoke((T)screen);
@@ -43,6 +43,27 @@ namespace GameTemplate.UI
             TryShowNext();
 
             return instance as T;
+        }
+
+        public void Dequeue()
+        {
+            if (currentQueueScreen != null)
+            {
+                currentQueueScreen.OnHide();
+                currentQueueScreen.OnCloseRequested -= HandleScreenCloseRequested;
+                InstanceManager.DestroyInstance(currentQueueScreen);
+                currentQueueScreen = null;
+
+                TryShowNext();
+                return;
+            }
+
+            if (screenQueue.Count > 0)
+            {
+                UIQueueScreen screen = screenQueue.Dequeue();
+                screen.OnCloseRequested -= HandleScreenCloseRequested;
+                InstanceManager.DestroyInstance(screen);
+            }
         }
 
         private void TryShowNext()
