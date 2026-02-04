@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1898534938675439575}
   - component: {fileID: 7459539216453789096}
   - component: {fileID: 3792742979151247844}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: GalleryItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4882ac4caf54dbcbdb79e17c13ce9dc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 7459539216453789096}
   rectTransform: {fileID: 285380000534987894}
   image: {fileID: 805759017171135308}
   loader: {fileID: 2151176909634366222}
@@ -297,7 +298,7 @@ GameObject:
   - component: {fileID: 4747684690209831832}
   - component: {fileID: 2365694707801559776}
   - component: {fileID: 4007727861724127655}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -389,7 +390,8 @@ GameObject:
   - component: {fileID: 3492568778973605352}
   - component: {fileID: 2151176909634366222}
   - component: {fileID: 6303513710463023365}
-  m_Layer: 0
+  - component: {fileID: 1547287088489293873}
+  m_Layer: 5
   m_Name: Loader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -466,6 +468,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f493ecc7b60948188fda9f6488b8b0f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvasGroup: {fileID: 1547287088489293873}
   fadeAnimation: {fileID: 6303513710463023365}
   loaderTransform: {fileID: 1672587735480393637}
   rotationSpeed: 360
@@ -538,6 +541,18 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   keyFrameSetupsOut: []
+--- !u!225 &1547287088489293873
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1535446743182420590}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2125780662638525621
 GameObject:
   m_ObjectHideFlags: 0
@@ -547,7 +562,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4696957322165112662}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -587,7 +602,7 @@ GameObject:
   - component: {fileID: 26458425536347864}
   - component: {fileID: 6055866657584846322}
   - component: {fileID: 3113730267417711790}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PremiumBadge
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -662,7 +677,7 @@ GameObject:
   - component: {fileID: 4176198023751055255}
   - component: {fileID: 1770570798664650709}
   - component: {fileID: 805759017171135308}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -734,7 +749,7 @@ GameObject:
   - component: {fileID: 2275282098592618718}
   - component: {fileID: 1019913778896040760}
   - component: {fileID: 4331495685304759530}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Frame
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -809,7 +824,7 @@ GameObject:
   - component: {fileID: 1672587735480393637}
   - component: {fileID: 7468993431139606595}
   - component: {fileID: 2490730512827301684}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Spinner
   m_TagString: Untagged
   m_Icon: {fileID: 0}

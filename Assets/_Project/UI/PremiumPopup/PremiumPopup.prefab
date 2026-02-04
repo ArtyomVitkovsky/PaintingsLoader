@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8277866245840984234}
   - component: {fileID: 5876086785497211222}
   - component: {fileID: 3642968370331732525}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Disclaimer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 1992789260617248509}
   - component: {fileID: 3155699087795225823}
   - component: {fileID: 8031957898098970162}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -165,7 +165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5110572599115754683}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureDescription (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -206,7 +206,7 @@ GameObject:
   - component: {fileID: 6782539159880893898}
   - component: {fileID: 2913502265914955228}
   - component: {fileID: 855569906626968969}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlan (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -343,7 +343,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4812655122486472822}
   - component: {fileID: 9190704363265185103}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BuyButtonContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -393,7 +393,7 @@ GameObject:
   - component: {fileID: 6567420267322255031}
   - component: {fileID: 7487151088702827202}
   - component: {fileID: 7015821318305161846}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PremiumPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1011,7 +1011,7 @@ GameObject:
   - component: {fileID: 3037604324653719380}
   - component: {fileID: 5053909474715648259}
   - component: {fileID: 6931177304493381668}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1086,7 +1086,7 @@ GameObject:
   - component: {fileID: 5736149854778035240}
   - component: {fileID: 9179245357588730709}
   - component: {fileID: 5014662259900344599}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlanText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1223,7 +1223,7 @@ GameObject:
   - component: {fileID: 4767278238568103396}
   - component: {fileID: 4942764250690226190}
   - component: {fileID: 71111012435068884}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlan (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1361,7 +1361,7 @@ GameObject:
   - component: {fileID: 1871477108720353263}
   - component: {fileID: 8282630518000840666}
   - component: {fileID: 8650391738677557213}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackgroundOverlay
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1436,7 +1436,7 @@ GameObject:
   - component: {fileID: 1419200334547275168}
   - component: {fileID: 9150584678728851497}
   - component: {fileID: 966903540287528677}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Stars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1511,7 +1511,7 @@ GameObject:
   - component: {fileID: 4566147121063910516}
   - component: {fileID: 2751468076055348203}
   - component: {fileID: 7691993317683940980}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1587,7 +1587,7 @@ GameObject:
   - component: {fileID: 6875375714379830080}
   - component: {fileID: 3188196249285367379}
   - component: {fileID: 4973181902030530768}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrivacyPolicyText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1765,7 +1765,7 @@ GameObject:
   - component: {fileID: 7339403655809422614}
   - component: {fileID: 6559700047708045359}
   - component: {fileID: 8920736606783027492}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectionMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1838,7 +1838,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8419307380176205100}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Container
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1879,7 +1879,7 @@ GameObject:
   - component: {fileID: 2162010490908739502}
   - component: {fileID: 8757943986003360815}
   - component: {fileID: 5683559805021492226}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlanText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2014,7 +2014,7 @@ GameObject:
   - component: {fileID: 3043034860702201535}
   - component: {fileID: 494994430662845278}
   - component: {fileID: 6929926205388143640}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: TermsOfService (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2195,7 +2195,7 @@ GameObject:
   - component: {fileID: 6376742052196657741}
   - component: {fileID: 1923409500332835000}
   - component: {fileID: 3353688581142221964}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ButtonArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2523,7 +2523,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2714375962054791999}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PremiumDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2561,7 +2561,7 @@ GameObject:
   - component: {fileID: 3119045467097440754}
   - component: {fileID: 2614734332069029483}
   - component: {fileID: 7444008370459569670}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2634,7 +2634,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1242601907008127800}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureDescription
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2674,7 +2674,7 @@ GameObject:
   - component: {fileID: 3273212191927496021}
   - component: {fileID: 2798560812777205770}
   - component: {fileID: 3342216623571444939}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: RestorePurchasesText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2853,7 +2853,7 @@ GameObject:
   - component: {fileID: 2092135133689488669}
   - component: {fileID: 5434393009703205084}
   - component: {fileID: 7254413864266363499}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Pricing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2948,7 +2948,7 @@ GameObject:
   - component: {fileID: 7591915810223912142}
   - component: {fileID: 8504449251616127541}
   - component: {fileID: 1891048793284803158}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3023,7 +3023,7 @@ GameObject:
   - component: {fileID: 1105795240213024671}
   - component: {fileID: 2119276170792077268}
   - component: {fileID: 2776204495497177087}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: CancellationText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3156,7 +3156,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7876191517800152261}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureDescription (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3195,7 +3195,7 @@ GameObject:
   - component: {fileID: 2499593013643950176}
   - component: {fileID: 7169843097635119857}
   - component: {fileID: 8212149917471167537}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3329,7 +3329,7 @@ GameObject:
   - component: {fileID: 2143585495255753421}
   - component: {fileID: 6322407237460352630}
   - component: {fileID: 7722994063761908172}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3464,7 +3464,7 @@ GameObject:
   - component: {fileID: 8993761216221014026}
   - component: {fileID: 3547389017113331883}
   - component: {fileID: 6563555553858487760}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3597,7 +3597,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9183898238917589332}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackButtonContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3635,7 +3635,7 @@ GameObject:
   - component: {fileID: 7669204201277566697}
   - component: {fileID: 3295634097499486442}
   - component: {fileID: 3642422348633110797}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FreeTrialText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3769,7 +3769,7 @@ GameObject:
   - component: {fileID: 7103457270547762358}
   - component: {fileID: 6652257083386799693}
   - component: {fileID: 4606293165510062989}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectionMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3842,7 +3842,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6046010032244145631}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureDescription (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3881,7 +3881,7 @@ GameObject:
   - component: {fileID: 7405886268244387977}
   - component: {fileID: 3038550867519333566}
   - component: {fileID: 1374924775850014215}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlanText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4016,7 +4016,7 @@ GameObject:
   - component: {fileID: 9088990833698875179}
   - component: {fileID: 7358577649920314275}
   - component: {fileID: 8196849614563778599}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PremiumHeader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4091,7 +4091,7 @@ GameObject:
   - component: {fileID: 8632854075908563694}
   - component: {fileID: 2662854238406908505}
   - component: {fileID: 5751925864871034463}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeatureText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4227,7 +4227,7 @@ GameObject:
   - component: {fileID: 7267516744306084822}
   - component: {fileID: 6683581788848899167}
   - component: {fileID: 8151512123439130173}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlan (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4365,7 +4365,7 @@ GameObject:
   - component: {fileID: 5345792942493827894}
   - component: {fileID: 3243708152161935434}
   - component: {fileID: 3336837810211899779}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PremiumContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4442,7 +4442,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1215171380240763724}
   - component: {fileID: 3852552708246737474}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FeaturesDescriptions
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4509,7 +4509,7 @@ GameObject:
   - component: {fileID: 6648785918020647279}
   - component: {fileID: 7827492098829451246}
   - component: {fileID: 7317170551604720646}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BuyButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4591,7 +4591,7 @@ GameObject:
   - component: {fileID: 3634651722115975639}
   - component: {fileID: 5075638562803645693}
   - component: {fileID: 4425110696552903280}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: BackButtonView
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4895,7 +4895,7 @@ GameObject:
   - component: {fileID: 8631998767738600473}
   - component: {fileID: 1250042213062561791}
   - component: {fileID: 6501343484413286356}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: PrisingPlansContainer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4999,7 +4999,7 @@ GameObject:
   - component: {fileID: 2974096924248614697}
   - component: {fileID: 1916094031202657174}
   - component: {fileID: 1125945008219129142}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: SelectionMarker
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5075,7 +5075,7 @@ GameObject:
   - component: {fileID: 8446249880102064116}
   - component: {fileID: 1453769434852030779}
   - component: {fileID: 4659487983579742408}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5165,7 +5165,7 @@ GameObject:
   - component: {fileID: 4467097344967501869}
   - component: {fileID: 1294388306935174610}
   - component: {fileID: 7742132670745847911}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FreeTrial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5241,7 +5241,7 @@ GameObject:
   - component: {fileID: 1399124882315711965}
   - component: {fileID: 2836378362484708392}
   - component: {fileID: 1020138376684262935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Diamond
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5316,7 +5316,7 @@ GameObject:
   - component: {fileID: 2611381503804617973}
   - component: {fileID: 51458280299085211}
   - component: {fileID: 230011376151895825}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
