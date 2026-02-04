@@ -12,6 +12,7 @@ namespace _Project.UI.MainScreen.Scripts
 {
     public class GalleryItem : MonoBehaviour
     {
+        [SerializeField] private CanvasGroup canvasGroup;
         [SerializeField] private RectTransform rectTransform;
         [SerializeField] private RawImage image;
         [SerializeField] private LoaderView loader;
@@ -67,6 +68,13 @@ namespace _Project.UI.MainScreen.Scripts
                     loader.Hide();
                 }
             }
+        }
+
+        public void SetActive(bool isActive)
+        {
+            canvasGroup.alpha = isActive ? 1 : 0;
+            canvasGroup.interactable = isActive;
+            canvasGroup.blocksRaycasts = isActive;
         }
     }
 }

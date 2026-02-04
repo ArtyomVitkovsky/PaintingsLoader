@@ -9,6 +9,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 using _Project.UI.PremiumPopup;
+using Cysharp.Threading.Tasks;
 
 namespace _Project.UI.MainScreen.Scripts.Gallery
 {
@@ -35,6 +36,8 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
         [SerializeField] private float spacing = 10f;
         [SerializeField] private float verticalPadding = 10f;
         [SerializeField] private float horizontalPadding = 10f;
+        
+        private string[] _cachedUrls;
 
         private int _totalItemsCount = 66;
         private int _columns;
@@ -49,13 +52,14 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
 
         private CancellationTokenSource _cts;
         private int _prevStartRow = -1;
-        
+        private float _lastRefreshY;
+
         private TextureAssetProvider assetProvider = new TextureAssetProvider();
 
         #region Dependencies
 
         private UIQueueNavigator _queueNavigator;
-
+        
         [Inject]
         public void Construct(
             [Inject(Id = NavigatorIds.QueueScreensNavigator)] UIQueueNavigator queueNavigator)
@@ -69,6 +73,8 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
         public void Initialize(SortingType type)
         {
             _cts = new CancellationTokenSource();
+            
+            CacheUrls();
 
             SetSorting(type);
             
@@ -76,6 +82,16 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
                 .SampleFrame(2)
                 .Subscribe(OnScroll)
                 .AddTo(this);
+        }
+
+        private void CacheUrls()
+        {
+            _cachedUrls = new string[_totalItemsCount + 1];
+            
+            for(int i = 1; i <= _totalItemsCount; i++)
+            {
+                _cachedUrls[i] = $"{baseUrl}{i}.jpg";
+            }
         }
 
         public void SetSorting(SortingType type)
@@ -150,7 +166,7 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
                 item.RectTransform.anchorMax = new Vector2(0, 1);
                 item.RectTransform.pivot = new Vector2(0, 1);
                 item.RectTransform.sizeDelta = new Vector2(_cellSize, _cellSize);
-                item.gameObject.SetActive(false);
+                item.SetActive(false);
                 
                 item.SelectionButton.OnButtonClick
                     .Subscribe(_ =>
@@ -185,13 +201,17 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
             for (int i = 0; i < _poolDisplayIndices.Length; i++)
             {
                 _poolDisplayIndices[i] = -1;
-                _pool[i].gameObject.SetActive(false);
+                _pool[i].SetActive(false);
             }
         }
         
         private void OnScroll(Vector2 value)
         {
-            Refresh(false);
+            if (Mathf.Abs(galleryItemsContainer.anchoredPosition.y - _lastRefreshY) > 5f)
+            {
+                _lastRefreshY = galleryItemsContainer.anchoredPosition.y;
+                Refresh(false);
+            }
         }
 
         private void Refresh(bool force)
@@ -224,11 +244,11 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
                         UpdateItemPosition(item, currentDataIndex, poolIndex);
                     }
                 
-                    item.gameObject.SetActive(true);
+                    item.SetActive(true);
                 }
                 else
                 {
-                    item.gameObject.SetActive(false);
+                    item.SetActive(false);
                     _poolDisplayIndices[poolIndex] = -1;
                 }
             }
@@ -248,7 +268,7 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
 
             var imageId = _activeIds[dataIndex];
             item.SetPremiumStatus(imageId % 4 == 0);
-            item.LoadImage(imageId, $"{baseUrl}{imageId}.jpg", _cts.Token);
+            item.LoadImage(imageId, _cachedUrls[imageId], _cts.Token).Forget();
         }
 
         private void OnDestroy()
