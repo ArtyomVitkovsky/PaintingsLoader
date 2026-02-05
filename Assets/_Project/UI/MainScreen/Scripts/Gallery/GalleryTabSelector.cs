@@ -43,6 +43,13 @@ namespace _Project.UI.MainScreen.Scripts
                     button.SetSelected(button.Type == activeType);
                 }
             }).AddTo(this);
+
+            Canvas.ForceUpdateCanvases();
+            var defaultTabButton = galleryTabButtons.FirstOrDefault(t => t.Type == defaultTab);
+            if (defaultTabButton != null)
+            {
+                MoveMarkerTask(defaultTabButton);
+            }
         }
         
         private async UniTask MoveMarkerTask(GalleryTabButton targetButton)
