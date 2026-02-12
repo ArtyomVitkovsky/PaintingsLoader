@@ -22,7 +22,7 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
 
     public class Gallery : MonoBehaviour
     {
-        private const string baseUrl = "https://data.ikppbb.com/test-task-unity-data/pics/";
+        private const string baseUrl = "/api/image/";
 
         [Inject] private DiContainer diContainer;
 
@@ -90,7 +90,7 @@ namespace _Project.UI.MainScreen.Scripts.Gallery
             
             for(int i = 1; i <= _totalItemsCount; i++)
             {
-                _cachedUrls[i] = $"{baseUrl}{i}.jpg";
+                _cachedUrls[i] = $"{baseUrl}{i}";
             }
         }
 
