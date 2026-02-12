@@ -8,7 +8,7 @@ namespace _Project.Scripts.Core.Services.AssetsProvider
 {
     public class TextureAssetProvider : IAssetsProvider<Texture, string>
     {
-        public async UniTask<Texture> GetTexture(string assetContainer, CancellationToken token)
+        public async UniTask<Texture> GetAsset(string assetContainer, CancellationToken token)
         {
             Texture loadedTexture = null;
             

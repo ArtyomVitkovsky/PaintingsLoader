@@ -57,7 +57,7 @@ namespace _Project.UI.MainScreen.Scripts
         
             loader.Show();
         
-            Texture = await _assetProvider.GetTexture(url, token);
+            Texture = await _assetProvider.GetAsset(url, token);
             if (Texture != null && !token.IsCancellationRequested)
             {
                 image.texture = Texture;
